@@ -10,8 +10,8 @@
     "test": "test"
   },
   "scripts": {
-    "compile": "psa -c \"src/**/*.purs\" \"bower_components/purescript-*/src/**/*.purs\"",
-    "prepublish": "rm -rf output && npm run compile",
+    "compile": "psc \"src/**/*.purs\" \"bower_components/purescript-*/src/**/*.purs\"",
+    "prepublish": "rm -rf output && bower install && npm run compile",
     "build": "npm run -s compile",
     "start": "node index.js"
   },
@@ -22,10 +22,13 @@
   "author": "kritzcreek",
   "license": "GPL-3.0",
   "dependencies": {
-    "gaze": "^1.1.2",
+    "chokidar": "^3.0.0",
     "glob": "^7.1.1",
     "keypress": "^0.2.1",
     "which": "^1.2.12",
     "yargs": "^4.6.0"
+  },
+  "devDependencies": {
+    "purescript": "^0.10.7"
   }
 }

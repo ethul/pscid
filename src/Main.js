@@ -1,18 +1,23 @@
 //module Main
 
-var gaze = require('gaze');
+var chokidar = require('chokidar');
+
+var glob = require('glob');
 
 exports.gaze = function(globs, cb){
-  gaze(globs, function(err, watcher) {
-    // Files have all started watching
-    // watcher === this
+  var files = [];
 
-    // Get all watched files
-    var watched = watcher.watched();
+  globs.forEach(function(a){
+    var result = glob.sync(a);
+    files = files.concat(result);
+  });
 
-    watcher.on('changed', function(filepath) {
-      console.log(filepath);
-      cb(filepath)();
-    });
+  var watcher = chokidar.watch(files, {
+    persistent: true
+  });
+
+  watcher.on('change', function(filepath) {
+    console.log(filepath);
+    cb(filepath)();
   });
 };

@@ -14,7 +14,7 @@ import Node.Encoding as Encoding
 import Node.FS.Sync as File
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (catchException, EXCEPTION)
-import Data.Argonaut (Json)
+import Data.Argonaut.Core (Json)
 import Data.Argonaut.Decode (decodeJson)
 import Data.Array (filter, head, null)
 import Data.Either (Either)
