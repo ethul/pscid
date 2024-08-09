@@ -29,6 +29,5 @@
     "yargs": "^4.6.0"
   },
   "devDependencies": {
-    "purescript": "^0.10.7"
   }
 }
